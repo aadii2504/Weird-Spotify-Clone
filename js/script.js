@@ -36,14 +36,14 @@ async function getSongs(folder){
     let SongUl = document.querySelector(".songlist").getElementsByTagName("ul")[0];
     SongUl.innerHTML = ""
     for (const song of songs) {
-        SongUl.innerHTML  = SongUl.innerHTML + `<li><img class="invert"  src= "img/music.svg" alt="">
+        SongUl.innerHTML  = SongUl.innerHTML + `<li><img class="invert"  src= "../img/music.svg" alt="">
         <div class="info">
             <div>${song.replaceAll("%20" , " ")}</div>
             <div>Aadiix</div>
         </div>
         <div class="playnow">
             <span>Play Now</span>
-            <img class="invert" src="img/play.svg" alt="">
+            <img class="invert" src="../img/play.svg" alt="">
         </div> </li>`;
     }
 
@@ -63,7 +63,7 @@ const playMusic  = (track , pause = false)=> {
     currentsong.src = `/${currFolder}/` + track
     if(!pause) {
         currentsong.play()
-        play.src= "img/pause.svg"
+        play.src= "../img/pause.svg"
 
     }
     document.querySelector(".songinfo").innerHTML = decodeURI(track)
@@ -137,11 +137,11 @@ async function main() {
     play.addEventListener("click" , ()=>{
         if(currentsong.paused) {
             currentsong.play();
-            play.src= "img/pause.svg"
+            play.src= "../img/pause.svg"
         }
         else {
             currentsong.pause()
-            play.src= "img/play.svg"
+            play.src= "../img/play.svg"
 
         }
     })
