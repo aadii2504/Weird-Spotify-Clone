@@ -82,6 +82,7 @@ async function displayAlbums(){
             const e = array[index];   
         if(e.href.includes("/songs/")){
             let folder = e.href.split("/").slice(-1)[0]
+            console.log(folder);
             //get the metadata of the folder 
             let  a = await fetch(`https://aadii2504.github.io/Weird-Spotify-Clone/songs/${folder}/info.json`);
             let response  = await a.json();
