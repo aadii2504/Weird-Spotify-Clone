@@ -80,7 +80,7 @@ async function displayAlbums(){
     let array = Array.from(anchors)   
         for (let index = 0; index < array.length; index++) {
             const e = array[index];   
-        if(e.href.includes("/songs/")){
+        if(e.href.includes("../songs/")){
             let folder = e.href.split("/").slice(-1)[0]
             //get the metadata of the folder 
             let  a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
@@ -95,7 +95,7 @@ async function displayAlbums(){
                         stroke="#141B34" stroke-width="1.5" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <img src="/songs/${folder}/cover.jpg" alt="">
+            <img src="../songs/${folder}/cover.jpg" alt="">
             <h2>${response.title}</h2>
             <p>${response.description}</p>
         </div>`
@@ -121,7 +121,7 @@ async function displayAlbums(){
 async function main() {
     
     //getting the list of the all the songs
-    await getSongs("songs/ncs");
+    await getSongs("../songs/ncs");
     playMusic(songs[0], true)
 
 
