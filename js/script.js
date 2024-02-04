@@ -18,7 +18,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs(folder){
     currFolder = folder;
-    let  a = await fetch(`https://aadii2504.github.io/Weird-Spotify-Clone/${folder}/`);
+    let  a = await fetch(`https://aadii2504.github.io/${folder}/`);
     let response  = await a.text();
     // console.log(response);
     let div  =  document.createElement("div")
@@ -71,7 +71,7 @@ const playMusic  = (track , pause = false)=> {
 }
 
 async function displayAlbums(){
-    let  a = await fetch(`https://aadii2504.github.io/Weird-Spotify-Clone/songs/`);
+    let  a = await fetch(`https://aadii2504.github.io/songs/`);
     let response  = await a.text();
     let div  =  document.createElement("div")
     div.innerHTML = response;
@@ -84,7 +84,7 @@ async function displayAlbums(){
             let folder = e.href.split("/").slice(-1)[0]
             console.log(folder);
             //get the metadata of the folder 
-            let  a = await fetch(`https://aadii2504.github.io/Weird-Spotify-Clone/songs/${folder}/info.json`);
+            let  a = await fetch(`https://aadii2504.github.io/songs/${folder}/info.json`);
             let response  = await a.json();
             // console.log(response)
             cardContainer.innerHTML  = cardContainer.innerHTML + `  <div data-folder="${folder}" class="card">
